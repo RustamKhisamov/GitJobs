@@ -45,8 +45,8 @@ final class JobsPresenter: RxBase, JobsPresenterP {
                 guard let items = $0.items else {
                     return .just(JobsState(items: nil, page: 0, endReach: true, error: $0.error))
                 }
-                self.sectionsSortedByDate(jobs: items)
-                return .just(JobsState(items: items, page: page, endReach: items.isEmpty, error: nil))
+                let sections = self.sectionsSortedByDate(jobs: items)
+                return .just(JobsState(items: sections, page: page, endReach: items.isEmpty, error: nil))
             }.asObservable()
             .bind(to: _state)
             .disposed(by: disposeBag)
@@ -67,11 +67,13 @@ final class JobsPresenter: RxBase, JobsPresenterP {
         viewController.present(alert, animated: true)
     }
     
-    func sectionsSortedByDate(jobs: [Job]) { // -> [Section]
-        let sorted = Dictionary(grouping: jobs, by: { $0.createDate })
-            .compactMap {  Section(name: $0.key.humanReadDate(), date: $0.key.formateToDate(), items: $0.value) }
+    func sectionsSortedByDate(jobs: [Job]) -> [SectionModel] {
+        Dictionary(grouping: jobs, by: { $0.createDate })
+            .compactMap {
+                SectionModel(header: Date.humanReadDate(string: $0.key),
+                             date: Date.formateToDate(string: $0.key),
+                             items: $0.value)
+            }
             .sorted { $0.date > $1.date }
-        
-        print(sorted)
     }
 }

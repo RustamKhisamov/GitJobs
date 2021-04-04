@@ -14,7 +14,7 @@ enum GJError: Error {
     public var message: String {
         switch self {
         case .cantGetJobs(let reason):
-            return reason ?? "Can't download job list"
+            return reason ?? "Can't download list of jobs"
         case .emptyDetails:
             return "Can't download job details. Try again"
         }

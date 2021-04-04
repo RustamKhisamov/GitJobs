@@ -8,15 +8,16 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class JobsViewController: RxViewController, UITableViewDelegate {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var presenter: JobsPresenterP!
     
     private let defaultOffset: CGFloat = 20
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,6 +28,18 @@ class JobsViewController: RxViewController, UITableViewDelegate {
     }
 
     private func subscribeState() {
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel>(
+            configureCell: { (_, tv, indexPath, item) in
+                let cell = tv.dequeueReusableCell(withIdentifier: "JobCell") as! JobCell
+                self.presenter.isLoading = false
+                cell.presenter = JobCellPresenter(job: item)
+                return cell
+            },
+            titleForHeaderInSection: { dataSource, sectionIndex in
+                return dataSource[sectionIndex].header
+            }
+        )
         
         let state = presenter.state
         
@@ -39,10 +52,7 @@ class JobsViewController: RxViewController, UITableViewDelegate {
             .distinctUntilChanged { $0.items == $1.items }
             .map { $0.items! }
             .asDriver()
-            .drive(tableView.rx.items(cellIdentifier: "JobCell", cellType: JobCell.self)) { [unowned self] (row, item, cell) in
-                self.presenter.isLoading = false
-                cell.presenter = JobCellPresenter(job: item)
-            }.disposed(by: disposeBag)
+            .drive(tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         
         state
             .filter { $0.error != nil }

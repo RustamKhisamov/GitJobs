@@ -20,8 +20,10 @@
 		0A06A14426186D6D0027DEBE /* JobDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A06A14326186D6D0027DEBE /* JobDetailsPresenter.swift */; };
 		0A610BF62618DF2C00734F44 /* GJError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A610BF52618DF2C00734F44 /* GJError.swift */; };
 		0A610BFA2619A44500734F44 /* JobsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A610BF92619A44500734F44 /* JobsState.swift */; };
-		0A610BFD2619A48400734F44 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A610BFC2619A48400734F44 /* Section.swift */; };
+		0A610BFD2619A48400734F44 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A610BFC2619A48400734F44 /* SectionModel.swift */; };
 		0A610C002619A8C400734F44 /* ScrollView+OffsetBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A610BFF2619A8C400734F44 /* ScrollView+OffsetBottom.swift */; };
+		0A610C0E2619D6E300734F44 /* Date+Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A610C0D2619D6E300734F44 /* Date+Formatted.swift */; };
+		0A610C132619D97B00734F44 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 0A610C122619D97B00734F44 /* RxDataSources */; };
 		0A67E4F3261639130040D0FD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0A67E4F2261639130040D0FD /* Alamofire */; };
 		0A67E4F7261639F70040D0FD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0A67E4F6261639F70040D0FD /* RxCocoa */; };
 		0A67E4F9261639F70040D0FD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0A67E4F8261639F70040D0FD /* RxSwift */; };
@@ -50,8 +52,9 @@
 		0A06A14326186D6D0027DEBE /* JobDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsPresenter.swift; sourceTree = "<group>"; };
 		0A610BF52618DF2C00734F44 /* GJError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GJError.swift; sourceTree = "<group>"; };
 		0A610BF92619A44500734F44 /* JobsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsState.swift; sourceTree = "<group>"; };
-		0A610BFC2619A48400734F44 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		0A610BFC2619A48400734F44 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		0A610BFF2619A8C400734F44 /* ScrollView+OffsetBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView+OffsetBottom.swift"; sourceTree = "<group>"; };
+		0A610C0D2619D6E300734F44 /* Date+Formatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatted.swift"; sourceTree = "<group>"; };
 		0A67E50826163CF80040D0FD /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		0A67E51426163DF80040D0FD /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		0AF43DF6261637D200F5286C /* GitJobs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitJobs.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +76,7 @@
 				0A67E4F9261639F70040D0FD /* RxSwift in Frameworks */,
 				0A67E4F7261639F70040D0FD /* RxCocoa in Frameworks */,
 				0A67E4FB261639F70040D0FD /* RxRelay in Frameworks */,
+				0A610C132619D97B00734F44 /* RxDataSources in Frameworks */,
 				0A67E4F3261639130040D0FD /* Alamofire in Frameworks */,
 				0A67E4FF26163A800040D0FD /* Realm in Frameworks */,
 			);
@@ -97,7 +101,7 @@
 				0AF43DFD261637D200F5286C /* JobsViewController.swift */,
 				0A06A0FE261780200027DEBE /* JobsPresenter.swift */,
 				0A610BF92619A44500734F44 /* JobsState.swift */,
-				0A610BFC2619A48400734F44 /* Section.swift */,
+				0A610BFC2619A48400734F44 /* SectionModel.swift */,
 				0A06A10B2617A66F0027DEBE /* cell */,
 			);
 			path = jobs;
@@ -135,6 +139,7 @@
 			children = (
 				0A06A13926186AF50027DEBE /* String+HTMLClean.swift */,
 				0A610BFF2619A8C400734F44 /* ScrollView+OffsetBottom.swift */,
+				0A610C0D2619D6E300734F44 /* Date+Formatted.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				0A67E4FE26163A800040D0FD /* Realm */,
 				0A67E50026163A800040D0FD /* RealmSwift */,
 				0A06A07126164A690027DEBE /* ObjectMapper */,
+				0A610C122619D97B00734F44 /* RxDataSources */,
 			);
 			productName = GitJobs;
 			productReference = 0AF43DF6261637D200F5286C /* GitJobs.app */;
@@ -239,6 +245,7 @@
 				0A67E4F5261639F70040D0FD /* XCRemoteSwiftPackageReference "RxSwift" */,
 				0A67E4FD26163A800040D0FD /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				0A06A07026164A690027DEBE /* XCRemoteSwiftPackageReference "ObjectMapper" */,
+				0A610C112619D97B00734F44 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = 0AF43DF7261637D200F5286C /* Products */;
 			projectDirPath = "";
@@ -267,7 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A610BFD2619A48400734F44 /* Section.swift in Sources */,
+				0A610BFD2619A48400734F44 /* SectionModel.swift in Sources */,
 				0A06A0FF261780200027DEBE /* JobsPresenter.swift in Sources */,
 				0A06A11F2617ACC60027DEBE /* RxViewController.swift in Sources */,
 				0A610BF62618DF2C00734F44 /* GJError.swift in Sources */,
@@ -276,6 +283,7 @@
 				0A06A1272618410B0027DEBE /* DataBase.swift in Sources */,
 				0A06A1362618509E0027DEBE /* JobCellPresenter.swift in Sources */,
 				0A06A1232617B7FE0027DEBE /* RxBase.swift in Sources */,
+				0A610C0E2619D6E300734F44 /* Date+Formatted.swift in Sources */,
 				0A06A14426186D6D0027DEBE /* JobDetailsPresenter.swift in Sources */,
 				0A610BFA2619A44500734F44 /* JobsState.swift in Sources */,
 				0A06A13A26186AF50027DEBE /* String+HTMLClean.swift in Sources */,
@@ -500,6 +508,14 @@
 				minimumVersion = 4.2.0;
 			};
 		};
+		0A610C112619D97B00734F44 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		0A67E4F1261639130040D0FD /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -531,6 +547,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A06A07026164A690027DEBE /* XCRemoteSwiftPackageReference "ObjectMapper" */;
 			productName = ObjectMapper;
+		};
+		0A610C122619D97B00734F44 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A610C112619D97B00734F44 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 		0A67E4F2261639130040D0FD /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -9,7 +9,7 @@ import Foundation
 
 struct JobsState {
     
-    var items: [Job]?
+    var items: [SectionModel]?
     var page = 0
     
     var endReach = false
